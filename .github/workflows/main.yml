@@ -15,6 +15,7 @@ jobs:
  
     - name: Install required PowerShell modules
       run: |
+        Get-PSRepository
         Install-Module -Name PowerShellGet -AllowPrerelease -Force
         Install-Module -Name 'PSRemoting'
         Install-Module -Name 'PSScriptAnalyzer'
