@@ -1,0 +1,52 @@
+name: Deploy Scripts to Windows Server
+ 
+on:
+  push:
+    branches:
+      - main  # Adjust this to your main branch name
+ 
+jobs:
+  deploy:
+    runs-on: windows-latest
+ 
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+ 
+    - name: Install required PowerShell modules
+      run: |
+        Install-Module -Name 'PSRemoting'
+        Install-Module -Name 'PSScriptAnalyzer'
+        Install-Module -Name 'PowerShellGet' -Force
+ 
+    - name: Set up WinRM
+      run: |
+        # Replace these values with your server information
+        $serverAddress = '98.70.56.69'
+        $username = 'Swara'
+        $password = 'Ss987654321@!'
+ 
+        # Configure WinRM
+        $securePassword = ConvertTo-SecureString -String $password -AsPlainText -Force
+        $credential = New-Object System.Management.Automation.PSCredential -ArgumentList $username, $securePassword
+        Enable-PSRemoting -Force
+        Set-Item WSMan:\localhost\Client\TrustedHosts -Value $serverAddress -Force
+ 
+    - name: Copy script files to the Windows server
+      run: |
+        # Replace these values with your server information and script file paths
+        $serverAddress = '98.70.56.69'
+        $username = 'Swara'
+        $password = 'Ss987654321@!'
+        $localPath = 'C:\Users\SWARANJALSINGH\Desktop\New folder (2)\CreateVM.ps1'
+        $remotePath = "D:\'new folder'"
+ 
+        $securePassword = ConvertTo-SecureString -String $password -AsPlainText -Force
+        $credential = New-Object System.Management.Automation.PSCredential -ArgumentList $username, $securePassword
+        Copy-Item -Path $localPath -Destination "\\$serverAddress\$remotePath" -Credential $credential -Recurse
+ 
+      # You can add additional steps to run the scripts on the server if needed
+ 
+    - name: Clean up WinRM configuration
+      run: |
+        Disable-PSRemoting -Force
