@@ -17,7 +17,7 @@ jobs:
       run: |
         Get-PSRepository -Name PSGallery
         Install-Module -Name PowerShellGet -AllowPrerelease -Force
-        Install-Module -Name 'PSRemoting'
+        Enable-PSRemoting -Confirm -Force
         Install-Module -Name 'PSScriptAnalyzer'
         Install-Module -Name 'PowerShellGet' -Force
  
