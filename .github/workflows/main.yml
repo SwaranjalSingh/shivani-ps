@@ -15,7 +15,7 @@ jobs:
  
     - name: Install required PowerShell modules
       run: |
-        Install-Module -Name 'PSRemoting'
+        # Install-Module -Name 'PSRemoting'
         Install-Module -Name 'PSScriptAnalyzer'
         Install-Module -Name 'PowerShellGet' -Force
  
