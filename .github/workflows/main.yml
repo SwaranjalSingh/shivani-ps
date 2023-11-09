@@ -38,7 +38,7 @@ jobs:
         $serverAddress = '98.70.56.69'
         $username = 'Swara'
         $password = 'Ss987654321@!'
-        $localPath = './CreateVM.ps1'
+        $localPath = './CreateVM.zip'
         $remotePath = "C:\Users\Swara\Desktop\New folder"
  
         $securePassword = ConvertTo-SecureString -String $password -AsPlainText -Force
