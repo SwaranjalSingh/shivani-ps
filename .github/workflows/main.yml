@@ -15,7 +15,7 @@ jobs:
  
     - name: Install required PowerShell modules
       run: |
-        Install-Module -Name 'PSScriptAnalyzer'
+        Install-Module -Name 'PSScriptAnalyzer' -Force
         Install-Module -Name 'PowerShellGet' -Force
  
     - name: Set up WinRM
@@ -37,7 +37,7 @@ jobs:
         $serverAddress = '98.70.56.69'
         $username = 'Swara'
         $password = 'Ss987654321@!'
-        $localPath = 'C:\Users\SWARANJALSINGH\Desktop\New folder (2)\CreateVM.ps1'
+        $localPath = ./CreateVM.ps1'
         $remotePath = "D:\'new folder'"
  
         $securePassword = ConvertTo-SecureString -String $password -AsPlainText -Force
