@@ -15,9 +15,7 @@ jobs:
  
     - name: Install required PowerShell modules
       run: |
-        Get-PSRepository -Name PSGallery
-        Install-Module -Name PowerShellGet -AllowPrerelease -Force
-        Enable-PSRemoting -Confirm -Force
+        Install-Module -Name 'PSRemoting' -Repository 'PSGallery'
         Install-Module -Name 'PSScriptAnalyzer'
         Install-Module -Name 'PowerShellGet' -Force
  
