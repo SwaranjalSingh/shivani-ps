@@ -22,7 +22,7 @@ jobs:
     - name: Set up WinRM
       run: |
         # Replace these values with your server information
-        $serverAddress = '98.70.56.69'
+        $serverAddress = '10.0.0.4'
         $username = 'Swara'
         $password = 'Ss987654321@!'
  
