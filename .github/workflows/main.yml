@@ -37,8 +37,8 @@ jobs:
         $serverAddress = '98.70.56.69'
         $username = 'Swara'
         $password = 'Ss987654321@!'
-        $localPath = ./CreateVM.ps1'
-        $remotePath = "D:\'new folder'\\"
+        $localPath = './CreateVM.ps1'
+        $remotePath = "D:\'new folder'"
  
         $securePassword = ConvertTo-SecureString -String $password -AsPlainText -Force
         $credential = New-Object System.Management.Automation.PSCredential -ArgumentList $username, $securePassword
